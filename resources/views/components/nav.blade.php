@@ -5,5 +5,6 @@
             <div class="links flex  justify-between items-center gap-5">
               <div class="bg-blue-500 rounded-full h-[40px] w-[40px] flex items-center justify-center text-white text-xl text-bold">A</div>
               <h3>Admin</h3>
+              <a href="/logout">logout</a>
             </div>
         </div>

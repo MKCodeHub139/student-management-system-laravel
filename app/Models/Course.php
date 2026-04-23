@@ -27,4 +27,8 @@ class Course extends Model
      public function classModel(){
         return $this->belongsTo(ClassModal::class, 'class_id');
     }
+    public function students()
+{
+    return $this->belongsToMany(Student::class);
+}
 }
