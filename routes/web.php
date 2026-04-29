@@ -13,7 +13,9 @@ use App\Http\Controllers\teacher\TeacherDashboardController;
 
 
 // Authentication
-
+Route::get('/',function(){
+    return redirect('/login');
+});
 // Route::get('/signup',[AuthController::class,'signup'])->name('auth.signup');
 Route::get('/login',[AuthController::class,'index'])->name('auth.index');
 Route::post('/login',[AuthController::class,'login'])->name('auth.login');
