@@ -20,7 +20,8 @@ return new class extends Migration
             $table->String('qualification');
             $table->date('hire_date');
             $table->String('address');
-
+            $table->String('role');
+            $table->String('password');
             $table->timestamps();
         });
     }

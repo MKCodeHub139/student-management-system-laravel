@@ -97,7 +97,7 @@ $(document).on('submit','.myForm',function(event){
     let form =$(this);
     let id =form.find('input[name="id"]').val();
 
-    let url =id?"/student/update/"+id :'/student/add';
+    let url =id?"/admin/student/update/"+id :'/admin/student/add';
     let formData = new FormData(this);
     event.preventDefault();
     console.log(id);
@@ -136,7 +136,7 @@ $(document).on('click', '.delete-btn', function(){
         return;
     }
     $.ajax({
-        url:"/student/delete/"+deleteId,
+        url:"/admin/student/delete/"+deleteId,
         type:"DELETE",
         success:function(res){
             if(res.success){
@@ -158,7 +158,7 @@ $(document).on('click', '.delete-btn', function(){
 $(document).on('click','.edit-modal-btn',function(){
     let id=$(this).attr('data-id')
     $.ajax({
-        url:'/student/edit/'+id,
+        url:'/admin/student/edit/'+id,
         type:'GET',
         success:function(res){
             $('.myForm').html(res);

@@ -19,7 +19,7 @@
                 <button class="btn float-end">Close</button>
             </form>
             <div class="myForm">
-              {{-- @include('components.attendance-history') --}}
+              {{-- @include('teacherForm') --}}
              </div> 
 
         </div>

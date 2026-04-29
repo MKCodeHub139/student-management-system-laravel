@@ -33,6 +33,12 @@
 
         </div>
         <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password"
+                class="border-1 border-gray-300 rounded-xl px-3 py-2 w-full" value="{{ $student->phone }}">
+
+        </div>
+        <div>
             <label for="dateOfBirth">date Of Birth</label>
             <input type="date" name="dateOfBirth" id="dateOfBirth"
                 class="border-1 border-gray-300 rounded-xl px-3 py-2 w-full" value="{{ $student->date_of_birth }}">

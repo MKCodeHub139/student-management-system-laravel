@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Student;
 use Yajra\DataTables\Facades\DataTables;
 use App\Models\ClassModal;
+use Illuminate\Support\Facades\Hash;
 class StudentController extends Controller
 {
     //
@@ -46,7 +47,7 @@ class StudentController extends Controller
              return $row->classModel?->name ?? '-';
             })
             ->addColumn('action', function($row){
-                $btn='<a href="/student/view/'.$row->id.'" class="edit-modal-btn btn bg-amber-500 btn-sm" data-id="'.$row->id.'">View</a>
+                $btn='<a href="/admin/student/view/'.$row->id.'" class="edit-modal-btn btn bg-amber-500 btn-sm" data-id="'.$row->id.'">View</a>
                 <button class="edit-modal-btn btn btn-primary btn-sm" data-id="'.$row->id.'" onclick="my_modal_4.showModal()">Edit</button>
                 <button class="delete-modal-btn btn btn-danger btn-sm" data-id="'.$row->id.'" onclick="my_modal_1.showModal()" >Delete</button>';
                 return $btn;
@@ -75,11 +76,13 @@ class StudentController extends Controller
             'last_name' => $request->lastName,
             'email' => $request->email,
             'phone' => $request->phone,
+            'password' => Hash::make($request->password),
             'date_of_birth' => $request->dateOfBirth,
             'gender' => $request->gender,
             'blood_group' => $request->bloodGroup,
             'status' => $request->status,
             'role_no' => $request->roleNo,
+            'role'=>'student',
             'class' => $request->class,
             'section' => $request->section,
             'admission_date' => $request->admissionDate,

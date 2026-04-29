@@ -28,7 +28,7 @@
             class="border-1 border-gray-300  py-2 px-5 rounded-xl ">
         <select name="select" id="selectClass" class="border-1 border-gray-300  py-2 px-5 rounded-xl ">
             <option value="">Select Class </option>
-            @foreach ($students->pluck('classModel') as $class)
+            @foreach ($students->pluck('classModel')->unique('id') as $class)
                 <option value="{{ $class->id }}">{{ $class->name }}</option>
             @endforeach
         </select>
@@ -170,60 +170,63 @@
             })
         })
         // open history modal
-        $(document).on('click','.attendance-history-modal',function(){
+        $(document).on('click', '.attendance-history-modal', function() {
             $.ajax({
-                url:"{{route('attendance.history')}}",
-                type:"GET",
-                success:function(res){
+                url: "{{ route('attendance.history') }}",
+                type: "GET",
+                success: function(res) {
                     $('.myForm').html(res)
                 }
             })
         })
         // view Attendance history
-        $(document).on('click','.view_attendance_history',function(){
-            let id =$(this).data('id')
-            let date =$(this).data('date')
+        $(document).on('click', '.view_attendance_history', function() {
+            let id = $(this).data('id')
+            let date = $(this).data('date')
             $.ajax({
-                url:"{{route('attendance.view-history')}}",
-                type:"GET",
-                data:{id:id,date:date},
-                success:function(res){
+                url: "{{ route('attendance.view-history') }}",
+                type: "GET",
+                data: {
+                    id: id,
+                    date: date
+                },
+                success: function(res) {
                     $('.courseForm').html(res)
                 }
             })
         })
         // delete attenance history
-        $(document).on('click','.delete-attendance',function(){
-            let id =$(this).data('id')
-            if(!id){
-               Swal.fire('error','Id not found !','error')
-            return;
+        $(document).on('click', '.delete-attendance', function() {
+            let id = $(this).data('id')
+            if (!id) {
+                Swal.fire('error', 'Id not found !', 'error')
+                return;
             }
             document.getElementById('my_modal_4').close();
             Swal.fire({
-                 title: 'Are you sure?',
-                 text: "This record will be deleted!",
-                 icon: 'warning',
-                 showCancelButton: true,
-                 confirmButtonColor: '#dc2626',
-                 confirmButtonText: 'Yes, delete it!',
-                 
-            }).then((result)=>{
-                if(result.isConfirmed){
+                title: 'Are you sure?',
+                text: "This record will be deleted!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#dc2626',
+                confirmButtonText: 'Yes, delete it!',
+
+            }).then((result) => {
+                if (result.isConfirmed) {
                     $.ajax({
-                        url:'/attendance/delete/'+id,
-                        type:'DELETE',
-                         processData:false,
-                        contentType:false,
-                        success:function(res){
-                            if(res.success){
+                        url: '/attendance/delete/' + id,
+                        type: 'DELETE',
+                        processData: false,
+                        contentType: false,
+                        success: function(res) {
+                            if (res.success) {
                                 Swal.fire({
-                                   icon:'success',
-                                    title:'Deleted',
+                                    icon: 'success',
+                                    title: 'Deleted',
                                     iconColor: '#dc2626',
-                                    text:res.message,
-                                    timer:3000,
-                                    showConfirmButton:false
+                                    text: res.message,
+                                    timer: 3000,
+                                    showConfirmButton: false
                                 })
                             }
                         }

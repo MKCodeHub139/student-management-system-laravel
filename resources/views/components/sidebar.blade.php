@@ -5,16 +5,20 @@
     <div>
         <ul class="m-0 p-0 list-none">
             <li class="m-0 p-0">
-                <a href="/" class="block w-full p-5 hover:bg-gray-200 cursor-pointer {{request()->routeIs('dashboard.*')?'bg-blue-100 text-blue-800':''}}">Dashboard</a>
+                <a href="/admin" class="block w-full p-5 hover:bg-gray-200 cursor-pointer {{request()->routeIs('dashboard.*')?'bg-blue-100 text-blue-800':''}}">Dashboard</a>
             </li>
             <li class="m-0 p-0">
-                <a href="/students" class="block w-full p-5 hover:bg-gray-200  cursor-pointer {{request()->routeIs('student.*')?'bg-blue-100 text-blue-800':''}}">Students</a>
+                <a href="/admin/students" class="block w-full p-5 hover:bg-gray-200  cursor-pointer {{request()->routeIs('student.*')?'bg-blue-100 text-blue-800':''}}">Students</a>
                 </li>
             <li class="m-0 p-0">
-                <a href="/attendance" class="block w-full p-5 hover:bg-gray-200  cursor-pointer {{request()->routeIs('attendance.*')?'bg-blue-100 text-blue-800':''}}">Attendance</a>
+                <a href="/admin/attendance" class="block w-full p-5 hover:bg-gray-200  cursor-pointer {{request()->routeIs('attendance.*')?'bg-blue-100 text-blue-800':''}}">Attendance</a>
                 </li>
             <li class="m-0 p-0 ">
-             <a href="/courses" class="block w-full p-5 hover:bg-gray-200 cursor-pointer {{request()->routeIs('courses.*')?'bg-blue-100 text-blue-800':''}}">Course</a>
+             <a href="/admin/courses" class="block w-full p-5 hover:bg-gray-200 cursor-pointer {{request()->routeIs('courses.*')?'bg-blue-100 text-blue-800':''}}">Course</a>
+
+            </li>
+            <li class="m-0 p-0 ">
+             <a href="/admin/teachers" class="block w-full p-5 hover:bg-gray-200 cursor-pointer {{request()->routeIs('teachers.*')?'bg-blue-100 text-blue-800':''}}">Teacher</a>
 
             </li>
         </ul>

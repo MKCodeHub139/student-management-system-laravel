@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('phone');
             $table->date('date_of_birth');
             $table->string('gender');
+            $table->string('role');
             $table->String('blood_group');
             $table->String('status');
             $table->String('role_no');
             $table->string('class');
+            $table->password('class');
             $table->String('section');
             $table->date('admission_date');
             $table->String('guardian_name');
