@@ -63,13 +63,14 @@ class StudentController extends Controller
         return view('form',compact('student','classes'));
     }
     public function store(Request $request){
+        $image =null;
         if(! $request->hasFile('image')) {
-            $request->image = null;
+            $image = null;
         } else {
             $file = $request->file('image');
             $filename = time().'_'.$file->getClientOriginalName();
             $file->move(public_path('uploads/image/'), $filename);
-            $request->image = $filename;
+            $image = $filename;
         }
         $student = Student::create([
             'first_name' => $request->firstName,
@@ -90,7 +91,7 @@ class StudentController extends Controller
             'guardian_phone' => $request->guardianPhone,
             'guardian_email' => $request->guardianEmail,
             'address' => $request->address,
-            'image' => $request->image,
+            'image' => $image,
         ]);
           return response()->json([
     'success' => true,
@@ -132,8 +133,9 @@ class StudentController extends Controller
                 'message' => 'Student not found'
             ],404);
         }
+        $image =$student->image;
         if(! $request->hasFile('image')) {
-            $request->image = $student->image;
+            $image= $student->image;
         } else {
             if($student->image){
                 $oldImagePath = public_path('uploads/image/'.$student->image);
@@ -144,7 +146,7 @@ class StudentController extends Controller
             $file = $request->file('image');
             $filename = time().'_'.$file->getClientOriginalName();
             $file->move(public_path('uploads/image/'), $filename);
-            $request->image = $filename;
+            $image = $filename;
         }
         $student->update([
              'first_name' => $request->firstName,
@@ -163,7 +165,7 @@ class StudentController extends Controller
             'guardian_phone' => $request->guardianPhone,
             'guardian_email' => $request->guardianEmail,
             'address' => $request->address,
-            'image' => $request->image,
+            'image' => $image,
         ]);
         return response()->json([
             'success' => true,

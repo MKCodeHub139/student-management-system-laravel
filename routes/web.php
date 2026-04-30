@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
-use App\Http\Controllers\CourseController;
+use App\Http\Controllers\courseController;
 use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
@@ -38,12 +38,12 @@ Route::post('/teachers/store',[TeacherController::class,'store'])->name('teacher
 
 
 // courses
-Route::get('/courses',[CourseController::class,'index'])->name('courses.index');
-Route::get('/courses/create',[CourseController::class,'create'])->name('courses.create');
-Route::post('/courses/add',[CourseController::class,'store'])->name('courses.add');
-Route::delete('/courses/delete/{id}',[CourseController::class,'destroy'])->name('courses.delete');
-Route::get('/courses/update/{id}',[CourseController::class,'update'])->name('courses.update');
-Route::put('/courses/edit/{id}',[CourseController::class,'edit'])->name('courses.edit');
+Route::get('/courses',[courseController::class,'index'])->name('courses.index');
+Route::get('/courses/create',[courseController::class,'create'])->name('courses.create');
+Route::post('/courses/add',[courseController::class,'store'])->name('courses.add');
+Route::delete('/courses/delete/{id}',[courseController::class,'destroy'])->name('courses.delete');
+Route::get('/courses/update/{id}',[courseController::class,'update'])->name('courses.update');
+Route::put('/courses/edit/{id}',[courseController::class,'edit'])->name('courses.edit');
 
 // attendance
 Route::get('/attendance',[AttendanceController::class,'index'])->name('attendance.index');
