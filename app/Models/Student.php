@@ -24,7 +24,6 @@ class Student extends Authenticatable
         'role_no',
         'class',
         'section',
-        'courses_id',
         'admission_date',
         'guardian_name',
         'guardian_phone',
@@ -32,12 +31,9 @@ class Student extends Authenticatable
         'address',
         'image',
     ];
-    protected $casts =[
-        'courses_id'=>'array',
-    ];
     protected $hidden = ['password'];
     public function classModel(){
-        return $this->belongsTo(ClassModal::class,'class');
+        return $this->belongsTo(ClassModal::class,'class','id');
     }
     public function attendance(){
         return $this->hasMany(Attendance::class,'student_id');

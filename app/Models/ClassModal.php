@@ -16,7 +16,7 @@ class ClassModal extends Model
     }
     
     public function courses(){
-        return $this->hasMany(Student::class,'class');
+        return $this->hasMany(Course::class,'class_id');
     }
     
     
