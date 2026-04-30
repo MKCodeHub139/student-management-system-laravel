@@ -18,6 +18,7 @@ class Student extends Authenticatable
         'date_of_birth',
         'gender',
         'role',
+        'password',
         'blood_group',
         'status',
         'role_no',
