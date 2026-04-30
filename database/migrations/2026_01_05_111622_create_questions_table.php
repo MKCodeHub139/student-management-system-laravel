@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('course_id')
                     ->constrained('courses')
                     ->cascadeOnDelete();
-$table->boolean('isCompleted')->default(false);
+$table->boolean('is_completed')->default(false);
             $table->foreignId('class_id')
                     ->constrained('classes')
                     ->cascadeOnDelete();

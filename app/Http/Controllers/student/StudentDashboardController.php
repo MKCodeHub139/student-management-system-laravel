@@ -137,7 +137,7 @@ class StudentDashboardController extends Controller
         $data = Auth::guard('student')->user();
         $result = ExamResult::where('student_id', $data->id)->first();
         $question = Question::where('class_id', $data->class)
-            ->where('isCompleted', '')
+            ->where(' is_completed', '')
             ->first();
         $totalQuestion = Question::where('class_id', $data->class)->get();
         // Time check (150 minutes = 2h 30m)
