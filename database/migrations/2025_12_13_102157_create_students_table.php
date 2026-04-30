@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();
-            $table->string('phone');
+            $table->string('phone');        
             $table->date('date_of_birth');
             $table->string('gender');
-            $table->String('password');
+            $table->string('password');
             $table->string('role');
             $table->String('blood_group');
             $table->String('status');
