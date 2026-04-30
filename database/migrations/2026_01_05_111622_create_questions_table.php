@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->String('question_id');
-            $table->String('question');
+            $table->string('question_id');
+            $table->string('question');
             $table->json('options')->nullable();
             $table->foreignId('course_id')
                     ->constrained('courses')

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('exam_results', function (Blueprint $table) {
             $table->id();
             $table->json('questions')->nullable();
-            $table->String('grade')->nullable();
-            $table->String('totalMarks')->nullable();
-            $table->String('marksOutOf')->nullable();
+            $table->string('grade')->nullable();
+            $table->string('totalMarks')->nullable();
+            $table->string('marksOutOf')->nullable();
             $table->json('marks')->nullable();
             $table->enum('result',['fail','pass'])->nullable();
             $table->integer('completed_question')->default(1);

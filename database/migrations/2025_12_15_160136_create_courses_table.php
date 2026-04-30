@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('course_name');
             $table->string('course_code');
-            $table->String('class_id');
-            $table->String('teacher_id');
+            $table->integer('class_id');
+            $table->string('teacher_id');
             $table->json('schedule');
-            $table->String('time');
-            $table->String('number_of_students');
+            $table->string('time');
+            $table->string('number_of_students');
             $table->text('description')->nullable();
             $table->timestamps();
         });
