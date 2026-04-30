@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('teacher_id');
             $table->json('schedule');
             $table->string('time');
-            $table->string('number_of_students');
+            $table->integer('number_of_students');
             $table->text('description')->nullable();
             $table->timestamps();
         });

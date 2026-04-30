@@ -175,7 +175,8 @@ class TeacherDashboardController extends Controller
                 'class_id'=>$teacher->courses->where('id',$id)->first()->class_id,
                 'question_id'=>$value['question_id'],
                     'question'=>$value['question'],
-                    'options'=>json_encode($value['options'], JSON_UNESCAPED_UNICODE)
+                    'options'=>json_encode($value['options'], JSON_UNESCAPED_UNICODE),
+                    'isCompleted' => false 
                 ]);
         }
         return response()->json(['message'=>'Question paper saved successfully']);
